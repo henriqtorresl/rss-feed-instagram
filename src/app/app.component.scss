@@ -13,10 +13,12 @@
 
 .feed {
     height: 80%;
-    width: 100%;
+    width: 80%;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
     position: relative;
+    overflow-x: auto;
+    scroll-behavior: smooth;
 }
