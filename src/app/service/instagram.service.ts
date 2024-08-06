@@ -1,14 +1,35 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { map, Observable, take } from 'rxjs';
+import { Post } from '../interfaces/Post';
+import { InstagramPostsResponse } from '../interfaces/InstagramPostsResponse';
+import { InstagramRefreshResponse } from '../interfaces/InstagramRefreshResponse';
 
 @Injectable({
   providedIn: 'root'
 })
 export class InstagramService {
 
-  private readonly token: string = 'IGQWRQNW1HRmRaNzRac1ZAhTkZAjZAVMyMWNZAYlgtaVRSUGJWbGhfU1JSNXlvM1JvSnczdldWN1dNcVBTQUZAqWmVBYWRmb3BsUWUyZAXpnTEt6WTMtaXBqLUoxUHUtb2lacGZA2WF9xZAk11eDJ6dUVBRkpVZA3ltVU9XQkEZD';
+  private readonly token: string = 'IGQWRPTzlnem1waml1WE9DdG5tRFY2LVc4QVdBU1dnd0thUU0tWmgxZAHZAoZADhKU3pJTEVtVWZA5RnJXVzh3QVhoYWtncFlWTWhjUGtUWm54SmJQUERrRHdWV09GRmY0WWRLZADZACNkF2dEVfbTJzVERlZA2RRazByblUZD';
+  private readonly apiInstagram: string = `https://graph.instagram.com`;
 
-  constructor() { 
-    
-  }
+  constructor(
+    private httpClient: HttpClient
+  ) { }
   
+  getPosts(): Observable<Post[]> {
+    return this.httpClient.get<InstagramPostsResponse>(`${this.apiInstagram}/me/media?access_token=${this.token}&fields=media_url,media_type,caption,permalink`)
+    .pipe(
+      take(1),
+      map((response: InstagramPostsResponse) => response.data)
+    );
+  }
+
+  refreshToken(): Observable<InstagramRefreshResponse> {
+    return this.httpClient.get<InstagramRefreshResponse>(`${this.apiInstagram}/refresh_access_token?grant_type=ig_refresh_token&access_token=${this.token}`)
+    .pipe(
+      take(1)
+    );
+  }
+
 }
