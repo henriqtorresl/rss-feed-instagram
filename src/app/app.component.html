@@ -1,1 +1,9 @@
-<router-outlet></router-outlet>
+<div class="container">
+  <h1>Feed do meu Instagram</h1>
+  
+  <div class="feed">
+      <ng-container *ngFor="let post of posts">
+        <app-card [post]="post"></app-card>
+      </ng-container>
+  </div>
+</div>

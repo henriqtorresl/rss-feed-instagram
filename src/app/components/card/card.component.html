@@ -1,1 +1,23 @@
-<p>card works!</p>
+<div class="card">
+    <div class="header">
+        <a [href]="post.permalink" target="_blank"><img src="../../../assets/instagram_icon.svg" alt="Ícone do Instagram"></a>
+        <h3>Meu Instagram</h3>
+    </div>
+    <div class="media">
+        <ng-container *ngIf="post.media_type == 'VIDEO' else image">
+            <a [href]="post.permalink"  target="_blank">
+                <video autoplay [muted]="true">
+                    <source [src]="post.media_url" type="video/mp4">
+                </video>
+            </a>
+        </ng-container>
+        <ng-template #image>
+            <a [href]="post.permalink"  target="_blank">
+                <img [src]="post.media_url" alt="Mídia">
+            </a>
+        </ng-template>
+    </div>
+    <div class="content">
+        <h4>{{ post.caption }}</h4>
+    </div>
+</div>
