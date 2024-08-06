@@ -5,5 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class InstagramService {
 
+  readonly accessToken: string = process.env.ACCESS_TOKEN;
+
   constructor() { }
 }
