@@ -10,7 +10,7 @@ import { InstagramRefreshResponse } from '../interfaces/InstagramRefreshResponse
 })
 export class InstagramService {
 
-  private readonly token: string = 'IGQWRPTzlnem1waml1WE9DdG5tRFY2LVc4QVdBU1dnd0thUU0tWmgxZAHZAoZADhKU3pJTEVtVWZA5RnJXVzh3QVhoYWtncFlWTWhjUGtUWm54SmJQUERrRHdWV09GRmY0WWRLZADZACNkF2dEVfbTJzVERlZA2RRazByblUZD';
+  private readonly token: string = 'AquiVocêAdicionaOToken';
   private readonly apiInstagram: string = `https://graph.instagram.com`;
 
   constructor(
