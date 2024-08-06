@@ -5,7 +5,10 @@ import { Injectable } from '@angular/core';
 })
 export class InstagramService {
 
-  readonly accessToken: string = process.env.ACCESS_TOKEN;
+  private readonly token: string = 'IGQWRQNW1HRmRaNzRac1ZAhTkZAjZAVMyMWNZAYlgtaVRSUGJWbGhfU1JSNXlvM1JvSnczdldWN1dNcVBTQUZAqWmVBYWRmb3BsUWUyZAXpnTEt6WTMtaXBqLUoxUHUtb2lacGZA2WF9xZAk11eDJ6dUVBRkpVZA3ltVU9XQkEZD';
 
-  constructor() { }
+  constructor() { 
+    
+  }
+  
 }
