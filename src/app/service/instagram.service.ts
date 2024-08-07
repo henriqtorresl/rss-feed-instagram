@@ -4,8 +4,7 @@ import { map, Observable, take } from 'rxjs';
 import { Post } from '../interfaces/Post';
 import { InstagramPostsResponse } from '../interfaces/InstagramPostsResponse';
 import { InstagramRefreshResponse } from '../interfaces/InstagramRefreshResponse';
-import { environment } from '../environments/environment.example';   // Comente essa linha
-// import { environment } from '../environments/environment';    // Descomente essa linha
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
