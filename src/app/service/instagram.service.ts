@@ -4,13 +4,15 @@ import { map, Observable, take } from 'rxjs';
 import { Post } from '../interfaces/Post';
 import { InstagramPostsResponse } from '../interfaces/InstagramPostsResponse';
 import { InstagramRefreshResponse } from '../interfaces/InstagramRefreshResponse';
+import { environment } from '../environments/environment.example';   // Comente essa linha
+// import { environment } from '../environments/environment';    // Descomente essa linha
 
 @Injectable({
   providedIn: 'root'
 })
 export class InstagramService {
 
-  private readonly token: string = 'AquiVocêAdicionaOToken';
+  private readonly token: string = environment.accessToken;
   private readonly apiInstagram: string = `https://graph.instagram.com`;
 
   constructor(

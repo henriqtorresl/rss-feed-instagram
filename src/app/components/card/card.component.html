@@ -6,7 +6,7 @@
     <div class="media">
         <ng-container *ngIf="post.media_type == 'VIDEO' else image">
             <a [href]="post.permalink"  target="_blank">
-                <video autoplay [muted]="true">
+                <video autoplay [muted]="true" loop>
                     <source [src]="post.media_url" type="video/mp4">
                 </video>
             </a>

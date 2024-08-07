@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { InstagramService } from './service/instagram.service';
 import { Post } from './interfaces/Post';
 
@@ -10,6 +10,7 @@ import { Post } from './interfaces/Post';
 export class AppComponent implements OnInit {
   
   posts: Post[] = [];
+  @ViewChild('feed') feed!: ElementRef;
 
   constructor(
     private instagramService: InstagramService
@@ -30,6 +31,15 @@ export class AppComponent implements OnInit {
     this.instagramService.refreshToken().subscribe(() => {
       console.log('Token renovado!');
     });
+  }
+
+  moveLeft(): void {
+    console.log(this.feed.nativeElement.offsetWidth);
+    this.feed.nativeElement.scrollLeft -= this.feed.nativeElement.offsetWidth;
+  }
+
+  moveRight(): void {
+    this.feed.nativeElement.scrollLeft += this.feed.nativeElement.offsetWidth;
   }
 
 }

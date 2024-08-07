@@ -1,13 +1,18 @@
 <div class="container">
   <h1>Feed do meu Instagram</h1>
   
-  <div class="feed">
+  <div class="feed" #feed>
       <ng-container *ngFor="let post of posts">
         <app-card [post]="post"></app-card>
       </ng-container>
   </div>
 
   <div class="buttons">
-    
+    <button (click)="moveLeft()">
+      <mat-icon>arrow_back_ios</mat-icon>
+    </button>
+    <button (click)="moveRight()">
+      <mat-icon>arrow_forward_ios</mat-icon>
+    </button>
   </div>
 </div>
